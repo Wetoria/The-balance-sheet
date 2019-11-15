@@ -1,7 +1,12 @@
 .ant-tree li .ant-tree-node-content-wrapper {
   cursor: default;
+  height: auto;
 }
 
 .ant-tree li .ant-tree-node-content-wrapper.ant-tree-node-selected {
   /* background-color: unset; */
+}
+
+.ant-input-number-handler-wrap {
+  display: none;
 }

@@ -3,6 +3,8 @@ import {
   Row,
   Icon,
   Modal,
+  Input,
+  InputNumber,
 } from 'antd';
 
 const { confirm } = Modal;
@@ -10,7 +12,6 @@ const { confirm } = Modal;
 class DetailRow extends Component {
 
   handleMinus = (parent, current) => {
-    console.log(parent, current);
     const hasChildren = current.children && current.children.length;
     const thiz = this;
     if (hasChildren) {
@@ -28,7 +29,7 @@ class DetailRow extends Component {
     }
   }
 
-  removeCurrent(parent, current) {
+  removeCurrent = (parent, current) => {
     parent.children = parent.children.filter(child => child.key !== current.key);
     this.refreshChildrenKey(parent);
     this.onSuccess();
@@ -51,13 +52,13 @@ class DetailRow extends Component {
     } = current;
     children.push({
       key: `${current.key}-${children.length}`,
-      title: '',
+      name: '',
+      amount: null,
     });
-    console.log(current);
     this.onSuccess();
   }
 
-  onSuccess() {
+  onSuccess = () => {
     const {
       onSuccess,
     } = this.props;
@@ -66,29 +67,47 @@ class DetailRow extends Component {
     }
   }
 
+  handleChangeName = (event, data) => {
+    data.name = event.target.value;
+    this.onSuccess();
+  }
+
+  handleChangeAmount = (value, data) => {
+    data.amount = value;
+    this.onSuccess();
+  }
+
   render() {
     const {
       data = {},
       parent,
     } = this.props;
     return (
-      <Row>
-        <span
-          style={{
-            float: 'left',
-          }}
-        >
-          {data.title}
+      <Row
+        type="flex"
+        justify="space-between"
+        align="middle"
+      >
+        <span>
+          <Input
+            size="small"
+            value={data.name}
+            onChange={(e) => this.handleChangeName(e, data)}
+          />
         </span>
-        <span
-          style={{
-            float: 'right',
-          }}
-        >
+        <span>
+          <InputNumber
+            size="small"
+            style={{ width: '130px' }}
+            precision={2}
+            value={data.amount}
+            onChange={(val) => this.handleChangeAmount(val, data)}
+          />
           <Icon
             type="plus-circle"
             style={{
               cursor: 'pointer',
+              marginLeft: '15px',
             }}
             onClick={() => this.handlePlus(data)}
           />
