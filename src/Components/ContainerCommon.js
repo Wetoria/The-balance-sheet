@@ -45,7 +45,7 @@ class ContainerCommon extends Component {
           type="flex"
           style={{
             height: '70px',
-            background: 'black',
+            // border: commonBorder,
           }}
         >
           <AlignCenterGrid style={{ width: '40%' }}>
@@ -55,7 +55,6 @@ class ContainerCommon extends Component {
             style={{
               width: '60%',
               height: '100%',
-              borderRight: commonBorder,
             }}
           >
             <HeightControlRow>

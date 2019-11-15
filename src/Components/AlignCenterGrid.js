@@ -9,7 +9,6 @@ const AlignCenterGrid = (props) => {
     <div
       {...props}
       style={{
-        border: '1px solid black',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

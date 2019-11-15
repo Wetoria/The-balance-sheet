@@ -3,15 +3,17 @@ import React, { Component } from 'react';
 import Assets from './Assets';
 import Debts from './Debts';
 
-const SplitContainer = ({ children }) => {
+const commonBorder = '1px solid black'
+
+const SplitContainer = ({ children, style }) => {
   return (
     <div
       style={{
         width: '50%',
         height: '100%',
         minWidth: '200px',
-        display: 'inline-block',
-        border: '1px solid black',
+        display: 'flex',
+        ...style,
       }}
     >
       { children }
@@ -31,7 +33,7 @@ class MainView extends Component {
           display: 'flex'
         }}
       >
-        <SplitContainer>
+        <SplitContainer style={{ borderRight: commonBorder }}>
           <Assets />
         </SplitContainer>
         <SplitContainer>
