@@ -15,3 +15,12 @@ code {
 #root {
   height: 100%;
 }
+
+body, div, * {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-size: 14px;
+}
