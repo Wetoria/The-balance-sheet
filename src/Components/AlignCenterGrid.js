@@ -22,4 +22,6 @@ const AlignCenterGrid = (props) => {
   );
 }
 
+window.AlignCenterGrid = AlignCenterGrid;
+
 export default AlignCenterGrid;

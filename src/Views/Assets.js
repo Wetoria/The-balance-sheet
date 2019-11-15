@@ -118,7 +118,7 @@ class Assets extends Component {
           flexDirection: 'column',
         }}
       >
-        <AlignCenterGrid style={{ height: '50px' }}>
+        <AlignCenterGrid style={{ minHeight: '50px' }}>
 
         </AlignCenterGrid>
         <Details data={treeData} />

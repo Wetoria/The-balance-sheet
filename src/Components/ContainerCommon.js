@@ -6,8 +6,6 @@ import AlignCenterGrid from './AlignCenterGrid';
 
 const commonBorder = '1px solid black';
 
-
-
 const WidthControlAlignCenterGrid = (props) => {
   return (
     <AlignCenterGrid
@@ -48,12 +46,15 @@ class ContainerCommon extends Component {
             // border: commonBorder,
           }}
         >
-          <AlignCenterGrid style={{ width: '40%' }}>
+          <AlignCenterGrid style={{ width: '50%' }}>
 
           </AlignCenterGrid>
-          <div
+          <AlignCenterGrid style={{ width: '50%' }}>
+
+          </AlignCenterGrid>
+          {/* <div
             style={{
-              width: '60%',
+              width: '50%',
               height: '100%',
             }}
           >
@@ -73,7 +74,7 @@ class ContainerCommon extends Component {
 
               </WidthControlAlignCenterGrid>
             </HeightControlRow>
-          </div>
+          </div> */}
         </Row>
       );
     }

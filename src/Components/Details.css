@@ -1,0 +1,7 @@
+.ant-tree li .ant-tree-node-content-wrapper {
+  cursor: default;
+}
+
+.ant-tree li .ant-tree-node-content-wrapper.ant-tree-node-selected {
+  /* background-color: unset; */
+}

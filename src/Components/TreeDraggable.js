@@ -126,6 +126,7 @@ class TreeDraggable extends React.Component {
         blockNode
         onDragEnter={this.onDragEnter}
         onDrop={this.onDrop}
+        {...this.props}
       >
         { this.props.children || loop(this.state.gData) }
       </Tree>

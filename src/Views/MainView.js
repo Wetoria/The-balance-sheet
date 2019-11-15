@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {
+  Row,
+  Col,
+} from 'antd';
 
 import Assets from './Assets';
 import Debts from './Debts';
@@ -21,6 +25,59 @@ const SplitContainer = ({ children, style }) => {
   );
 }
 
+const ThirdHeightRow = ({ children }) => {
+  return (
+    <Row style={{ height: '33.33%' }} type="flex" align="middle">
+      { children }
+    </Row>
+  );
+}
+
+
+const StatisticCard = (props) => {
+  const assetsOrDebtsAmountStyle = {
+    marginLeft: '10px',
+  };
+  const assetsOrDebtsLabelStyle = {
+
+  };
+  return (
+    <div
+      style={{
+        width: '400px',
+        height: '170px',
+        background: 'white',
+        borderRadius: '10px',
+        boxShadow: '3px 3px 3px #DCDCDC',
+        border: '1px solid #DCDCDC',
+        padding: '15px 25px',
+      }}
+    >
+      <ThirdHeightRow>
+        <span>资金状况</span>
+      </ThirdHeightRow>
+      <ThirdHeightRow>
+        <Col span={12}>
+          <b style={{ fontSize: '26px' }}>1,234,567.00</b>
+        </Col>
+        <Col span={12}>
+          <b>50%</b>
+        </Col>
+      </ThirdHeightRow>
+      <ThirdHeightRow>
+        <Col span={12}>
+          <label style={assetsOrDebtsLabelStyle}>总资产</label>
+          <b style={assetsOrDebtsAmountStyle}>¥12,233</b>
+        </Col>
+        <Col span={12}>
+          <label style={assetsOrDebtsLabelStyle}>总资产</label>
+          <b style={assetsOrDebtsAmountStyle}>¥12,233</b>
+        </Col>
+      </ThirdHeightRow>
+    </div>
+  );
+}
+
 class MainView extends Component {
 
   render() {
@@ -29,10 +86,16 @@ class MainView extends Component {
         style={{
           width: '100%',
           height: '100%',
-          background: 'white',
-          display: 'flex'
+          // Azure 蔚蓝色 F0FFFF
+          // Snow	雪	#FFFAFA
+          // WhiteSmoke	白烟	#F5F5F5
+          background: '#FFFFFF',
+          display: 'flex',
         }}
       >
+        {/* <Row type="flex" style={{ padding: '5px 10px' }}>
+          <StatisticCard></StatisticCard>
+        </Row> */}
         <SplitContainer style={{ borderRight: commonBorder }}>
           <Assets />
         </SplitContainer>

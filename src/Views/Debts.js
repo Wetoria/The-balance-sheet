@@ -125,7 +125,7 @@ class Debts extends Component {
           flexDirection: 'column',
         }}
       >
-        <AlignCenterGrid style={{ height: '50px', borderTop: 'unset' }}>
+        <AlignCenterGrid style={{ minHeight: '50px' }}>
 
         </AlignCenterGrid>
         <Details data={treeData} />

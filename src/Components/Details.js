@@ -1,12 +1,63 @@
 import React, { Component } from 'react';
 import TreeDraggable from './TreeDraggable';
+import DetailRow from './DetailRow';
+import {
+  Tree,
+} from 'antd';
+import './Details.css';
+
+const { TreeNode } = Tree;
+
+const commonBorder = '1px solid black'
 
 class Details extends Component {
+  state = {
+    treeData: this.props.data || [],
+  }
+
+  refreshTree = () => {
+    this.setState({
+      treeData: this.state.treeData,
+    });
+  }
 
   render() {
     const {
-      data = [],
-    } = this.props;
+      treeData,
+    } = this.state;
+    const loop = (data, parent) =>
+      data.map(item => {
+        if (item.children && item.children.length) {
+          return (
+            <TreeNode
+              key={item.key}
+              style={{ cursor: 'default' }}
+              title={
+                <DetailRow
+                  data={item}
+                  parent={parent}
+                  onSuccess={this.refreshTree}
+                />
+              }
+            >
+              {loop(item.children, item)}
+            </TreeNode>
+          );
+        }
+        return (
+          <TreeNode
+            key={item.key}
+            style={{ cursor: 'default' }}
+            title={
+              <DetailRow
+                data={item}
+                parent={parent}
+                onSuccess={this.refreshTree}
+              />
+            }
+          />
+        );
+      });
     return (
       <div
         style={{
@@ -15,6 +66,8 @@ class Details extends Component {
           width: '100%',
           height: '100%',
           overflow: 'hidden',
+          borderTop: commonBorder,
+          borderBottom: commonBorder,
         }}
       >
         <div
@@ -25,7 +78,8 @@ class Details extends Component {
             overflowY: 'scroll',
           }}
         >
-          <TreeDraggable data={data}>
+          <TreeDraggable>
+            {loop(treeData)}
           </TreeDraggable>
         </div>
       </div>
