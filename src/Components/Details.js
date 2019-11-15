@@ -3,6 +3,7 @@ import TreeDraggable from './TreeDraggable';
 import DetailRow from './DetailRow';
 import {
   Tree,
+  Icon,
 } from 'antd';
 import './Details.css';
 
@@ -15,9 +16,21 @@ class Details extends Component {
     treeData: this.props.data || [],
   }
 
-  refreshTree = () => {
+  refreshTree = (tree) => {
     this.setState({
-      treeData: this.state.treeData,
+      treeData: tree || this.state.treeData,
+    });
+  }
+
+  addNew = () => {
+    const { treeData } = this.state;
+    treeData.push({
+      key: `${treeData.length}`,
+      name: '',
+      amount: null,
+    });
+    this.setState({
+      treeData,
     });
   }
 
@@ -76,11 +89,30 @@ class Details extends Component {
             height: '100%',
             position: 'absolute',
             overflowY: 'scroll',
+            paddingBottom: '50px',
           }}
         >
           <TreeDraggable>
-            {loop(treeData)}
+            {loop(treeData, treeData)}
           </TreeDraggable>
+        </div>
+        <div
+          style={{
+            width: '40px',
+            height: '40px',
+            borderRadius: '20px',
+            position: 'absolute',
+            bottom: '10px',
+            right: '20px',
+            border: '1px solid #DCDCDC',
+            background: 'white',
+            cursor: 'pointer',
+            textAlign: 'center',
+            lineHeight: '40px',
+          }}
+          onClick={this.addNew}
+        >
+          <Icon type="plus" style={{ fontSize: '30px' }} />
         </div>
       </div>
     );

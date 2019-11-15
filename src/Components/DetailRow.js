@@ -30,13 +30,25 @@ class DetailRow extends Component {
   }
 
   removeCurrent = (parent, current) => {
-    parent.children = parent.children.filter(child => child.key !== current.key);
+    if (parent.children) {
+      parent.children = parent.children.filter(child => child.key !== current.key);
+    } else {
+      parent.forEach((child) => {
+        console.log(child, current, child !== current);
+      })
+      parent = parent.filter(child => child !== current);
+    }
     this.refreshChildrenKey(parent);
-    this.onSuccess();
+    this.onSuccess(!parent.children && parent);
   }
 
   refreshChildrenKey = (node) => {
-    const { children } = node;
+    const { children, length } = node;
+    if (length) {
+      node.forEach((child, index) => {
+        child.key = `${index}`;
+      });
+    }
     if (!children || !children.length) return;
     children.forEach((child, index) => {
       child.key = `${node.key}-${index}`;
@@ -58,12 +70,12 @@ class DetailRow extends Component {
     this.onSuccess();
   }
 
-  onSuccess = () => {
+  onSuccess = (tree) => {
     const {
       onSuccess,
     } = this.props;
     if (onSuccess && typeof onSuccess === 'function') {
-      onSuccess();
+      onSuccess(tree);
     }
   }
 
