@@ -6,6 +6,7 @@ import {
   Icon,
 } from 'antd';
 import './Details.css';
+import MoneyDetail from 'src/Views/AssetsAndDebts/MoneyDetails';
 
 const { TreeNode } = Tree;
 
@@ -24,11 +25,13 @@ class Details extends Component {
 
   addNew = () => {
     const { treeData } = this.state;
-    treeData.push({
+    const newDetail = new MoneyDetail({
       key: `${treeData.length}`,
       name: '',
       amount: null,
+      children: [],
     });
+    treeData.push(newDetail);
     this.setState({
       treeData,
     });
@@ -93,7 +96,7 @@ class Details extends Component {
           }}
         >
           <TreeDraggable>
-            {loop(treeData, treeData)}
+            {loop(treeData.children, treeData)}
           </TreeDraggable>
         </div>
         <div

@@ -4,8 +4,8 @@ import {
   Col,
 } from 'antd';
 
-import Assets from './Assets';
-import Debts from './Debts';
+import Assets from './AssetsAndDebts/Assets';
+import Debts from './AssetsAndDebts/Debts';
 
 const commonBorder = '1px solid black'
 
