@@ -16,7 +16,6 @@ const AlignCenterGrid = (props) => {
         ...style,
       }}
     >
-      <span>测试文本</span>
       {children}
     </div>
   );

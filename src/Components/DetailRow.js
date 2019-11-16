@@ -31,31 +31,18 @@ class DetailRow extends Component {
 
   removeCurrent = (parent, current) => {
     parent.removeTarget(current);
-    this.onSuccess();
   }
 
   handlePlus = (current) => {
     current.addNewChild();
-    this.onSuccess();
-  }
-
-  onSuccess = (tree) => {
-    const {
-      onSuccess,
-    } = this.props;
-    if (onSuccess && typeof onSuccess === 'function') {
-      onSuccess(tree);
-    }
   }
 
   handleChangeName = (event, data) => {
-    data.name = event.target.value;
-    this.onSuccess();
+    data.update('name', event.target.value);
   }
 
   handleChangeAmount = (value, data) => {
-    data.amount = value;
-    this.onSuccess();
+    data.update('amount', value);
   }
 
   render() {
@@ -63,6 +50,9 @@ class DetailRow extends Component {
       data = {},
       parent,
     } = this.props;
+    const {
+      amount = 0,
+    } = data;
     return (
       <Row
         type="flex"
@@ -77,13 +67,16 @@ class DetailRow extends Component {
           />
         </span>
         <span>
-          <InputNumber
-            size="small"
-            style={{ width: '130px' }}
-            precision={2}
-            value={data.amount}
-            onChange={(val) => this.handleChangeAmount(val, data)}
-          />
+          {
+            data.hasChildren() ? <span>{amount.toFixed(2) }</span>
+              : <InputNumber
+                size="small"
+                style={{ width: '130px' }}
+                precision={2}
+                value={data.amount}
+                onChange={(val) => this.handleChangeAmount(val, data)}
+              />
+          }
           <Icon
             type="plus-circle"
             style={{

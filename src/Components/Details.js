@@ -6,41 +6,22 @@ import {
   Icon,
 } from 'antd';
 import './Details.css';
-import MoneyDetail from 'src/Views/AssetsAndDebts/MoneyDetails';
 
 const { TreeNode } = Tree;
 
 const commonBorder = '1px solid black'
 
 class Details extends Component {
-  state = {
-    treeData: this.props.data || [],
-  }
-
-  refreshTree = (tree) => {
-    this.setState({
-      treeData: tree || this.state.treeData,
-    });
-  }
-
   addNew = () => {
-    const { treeData } = this.state;
-    const newDetail = new MoneyDetail({
-      key: `${treeData.length}`,
-      name: '',
-      amount: null,
-      children: [],
-    });
-    treeData.push(newDetail);
-    this.setState({
-      treeData,
-    });
+    const { data } = this.props;
+    data.addNewChild();
+    console.log(data);
   }
 
   render() {
     const {
-      treeData,
-    } = this.state;
+      data,
+    } = this.props;
     const loop = (data, parent) =>
       data.map(item => {
         if (item.children && item.children.length) {
@@ -52,7 +33,6 @@ class Details extends Component {
                 <DetailRow
                   data={item}
                   parent={parent}
-                  onSuccess={this.refreshTree}
                 />
               }
             >
@@ -68,7 +48,6 @@ class Details extends Component {
               <DetailRow
                 data={item}
                 parent={parent}
-                onSuccess={this.refreshTree}
               />
             }
           />
@@ -96,7 +75,7 @@ class Details extends Component {
           }}
         >
           <TreeDraggable>
-            {loop(treeData.children, treeData)}
+            {loop(data.children, data)}
           </TreeDraggable>
         </div>
         <div

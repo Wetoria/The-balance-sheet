@@ -47,10 +47,10 @@ class ContainerCommon extends Component {
           }}
         >
           <AlignCenterGrid style={{ width: '50%' }}>
-
+            { this.props.label}
           </AlignCenterGrid>
           <AlignCenterGrid style={{ width: '50%' }}>
-
+            {this.props.value}
           </AlignCenterGrid>
           {/* <div
             style={{

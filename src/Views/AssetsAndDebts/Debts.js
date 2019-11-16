@@ -119,8 +119,38 @@ const treeData = {
 };
 
 class Debts extends Component {
+  constructor(props) {
+    super(props);
+    const {
+      data,
+    } = this.props;
+    this.refreshDom = this.refreshDom.bind(this);
+    this.state = {
+      details: data,
+    };
+    data.refreshFunc = this.refreshDom;
+  }
+  refreshDom = () => {
+    const {
+      details,
+    } = this.state;
+    details.refreshTotal();
+    console.log(details);
+    this.setState({
+      details: details,
+    });
+  }
   render() {
-    const details = new MoneyDetails(treeData);
+    const {
+      details,
+    } = this.state;
+    const {
+      assets,
+    } = this.props;
+    const {
+      amount = 0,
+    } = details;
+    const aAmount = assets.amount;
     return (
       <div
         style={{
@@ -134,9 +164,15 @@ class Debts extends Component {
 
         </AlignCenterGrid>
         <Details data={details} />
-        <Container />
-        <Container />
-        <Container />
+        <Container label="总负债" value={ amount.toFixed(2) } />
+        <Container
+          label={<span style={{ textAlign: 'center' }}>所有者权益<br />(总资产-总负债)</span>}
+          value={(assets.amount - amount).toFixed(2)}
+        />
+        <Container
+          label={<span style={{ textAlign: 'center' }}>资产负债率<br />(总资产/总负债)</span>}
+          value={<span>{(aAmount && amount) ? `${((amount / assets.amount) * 100).toFixed(2)}%` : ''}</span>}
+        />
       </div>
     );
   }

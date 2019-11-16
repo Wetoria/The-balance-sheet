@@ -6,8 +6,9 @@ import {
 
 import Assets from './AssetsAndDebts/Assets';
 import Debts from './AssetsAndDebts/Debts';
+import Details from './AssetsAndDebts/MoneyDetails';
 
-const commonBorder = '1px solid black'
+const commonBorder = '1px solid black';
 
 const SplitContainer = ({ children, style }) => {
   return (
@@ -79,8 +80,21 @@ const StatisticCard = (props) => {
 }
 
 class MainView extends Component {
+  state = {
+    assetsAndDebts: {
+      assets: new Details(),
+      debts: new Details(),
+    },
+  }
 
   render() {
+    console.log(this.state.assetsAndDebts);
+    const {
+      assetsAndDebts: {
+        assets,
+        debts,
+      }
+    } = this.state;
     return (
       <div
         style={{
@@ -97,10 +111,10 @@ class MainView extends Component {
           <StatisticCard></StatisticCard>
         </Row> */}
         <SplitContainer style={{ borderRight: commonBorder }}>
-          <Assets />
+          <Assets data={assets} />
         </SplitContainer>
         <SplitContainer>
-          <Debts />
+          <Debts data={debts} assets={assets} />
         </SplitContainer>
       </div>
     );

@@ -113,8 +113,34 @@ const treeData = {
 };
 
 class Assets extends Component {
+  constructor(props) {
+    super(props);
+    const {
+      data,
+    } = this.props;
+    data.refreshFunc = this.refreshDom;
+    this.state = {
+      details: data,
+    };
+    this.refreshDom = this.refreshDom.bind(this);
+  }
+  refreshDom = () => {
+    const {
+      details,
+    } = this.state;
+    details.refreshTotal();
+    console.log(details);
+    this.setState({
+      details: details,
+    });
+  }
   render() {
-    const details = new MoneyDetails(treeData);
+    const {
+      details,
+    } = this.state;
+    const {
+      amount = 0,
+    } = details;
     return (
       <div
         style={{
@@ -128,7 +154,7 @@ class Assets extends Component {
 
         </AlignCenterGrid>
         <Details data={details} />
-        <Container />
+        <Container label="总资产" value={amount.toFixed(2)} />
       </div>
     );
   }
