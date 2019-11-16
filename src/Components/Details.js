@@ -15,7 +15,6 @@ class Details extends Component {
   addNew = () => {
     const { data } = this.props;
     data.addNewChild();
-    console.log(data);
   }
 
   render() {

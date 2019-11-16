@@ -1,5 +1,5 @@
 class Detail {
-  constructor(props, refreshFunc) {
+  constructor(props, state = { func: () => {}, key: 'details' }) {
     if (!props) {
       this.name = undefined;
       this.amount = 0;
@@ -9,14 +9,15 @@ class Detail {
       for (const [key, value] of Object.entries(props)) {
         if (key === 'children') {
           this[key] = value.map((child) => {
-            return new Detail(child, refreshFunc);
+            return new Detail(child, state.func);
           });
         } else {
           this[key] = value;
         }
       }
     }
-    this.refreshFunc = refreshFunc;
+    this.setState = state.func;
+    this.stateKey = state.key;
   }
 
   addNewChild = () => {
@@ -31,7 +32,7 @@ class Detail {
       name: '',
       amount: 0,
       children: [],
-    }, this.refreshFunc);
+    }, { func: this.setState, key: this.stateKey });
     children.push(newDetail);
     this.refreshDom();
   }
@@ -69,9 +70,9 @@ class Detail {
   }
 
   refreshDom = () => {
-    console.log(this.refreshFunc);
-    if (this.refreshFunc && this.refreshFunc instanceof Function) {
-      this.refreshFunc();
+    if (this.setState && this.setState instanceof Function) {
+      const { stateKey } = this;
+      this.setState(stateKey, this);
     }
   }
 

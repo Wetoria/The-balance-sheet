@@ -119,37 +119,16 @@ const treeData = {
 };
 
 class Debts extends Component {
-  constructor(props) {
-    super(props);
+  render() {
     const {
       data,
     } = this.props;
-    this.refreshDom = this.refreshDom.bind(this);
-    this.state = {
-      details: data,
-    };
-    data.refreshFunc = this.refreshDom;
-  }
-  refreshDom = () => {
-    const {
-      details,
-    } = this.state;
-    details.refreshTotal();
-    console.log(details);
-    this.setState({
-      details: details,
-    });
-  }
-  render() {
-    const {
-      details,
-    } = this.state;
     const {
       assets,
     } = this.props;
     const {
       amount = 0,
-    } = details;
+    } = data;
     const aAmount = assets.amount;
     return (
       <div
@@ -160,10 +139,10 @@ class Debts extends Component {
           flexDirection: 'column',
         }}
       >
-        <AlignCenterGrid style={{ minHeight: '50px' }}>
+        {/* <AlignCenterGrid style={{ minHeight: '50px' }}>
 
-        </AlignCenterGrid>
-        <Details data={details} />
+        </AlignCenterGrid> */}
+        <Details data={data} />
         <Container label="总负债" value={ amount.toFixed(2) } />
         <Container
           label={<span style={{ textAlign: 'center' }}>所有者权益<br />(总资产-总负债)</span>}

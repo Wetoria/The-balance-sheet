@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   Row,
   Col,
+  Button,
 } from 'antd';
 
 import Assets from './AssetsAndDebts/Assets';
@@ -9,6 +10,8 @@ import Debts from './AssetsAndDebts/Debts';
 import Details from './AssetsAndDebts/MoneyDetails';
 
 const commonBorder = '1px solid black';
+
+const fs = window.require('electron').remote.require('fs');
 
 const SplitContainer = ({ children, style }) => {
   return (
@@ -79,22 +82,48 @@ const StatisticCard = (props) => {
   );
 }
 
+const writeToFile = (fileName, str) => {
+  fs.writeFile(`${fileName}`, str, (err) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log('done');
+  });
+}
+
 class MainView extends Component {
-  state = {
-    assetsAndDebts: {
-      assets: new Details(),
-      debts: new Details(),
-    },
+  constructor(props) {
+    super(props);
+    this.state = {
+      assetsAndDebts: {
+        assets: new Details(null, { func: this.setter, key: 'assets' }),
+        debts: new Details(null, { func: this.setter, key: 'debts' }),
+      },
+    }
+    this.setter = this.setter.bind(this);
+  }
+
+  setter = (key, obj) => {
+    // obj.refreshTotal();
+    const { assetsAndDebts } = this.state;
+    assetsAndDebts[key].refreshTotal();
+    this.setState({
+      assetsAndDebts,
+    });
+  }
+
+  handleSave = () => {
+    writeToFile('AND.json', JSON.stringify(this.state.assetsAndDebts, null, 2));
   }
 
   render() {
-    console.log(this.state.assetsAndDebts);
     const {
       assetsAndDebts: {
         assets,
         debts,
       }
     } = this.state;
+    console.log('ass is ', this.state.assetsAndDebts);
     return (
       <div
         style={{
@@ -104,18 +133,22 @@ class MainView extends Component {
           // Snow	雪	#FFFAFA
           // WhiteSmoke	白烟	#F5F5F5
           background: '#FFFFFF',
-          display: 'flex',
         }}
       >
         {/* <Row type="flex" style={{ padding: '5px 10px' }}>
           <StatisticCard></StatisticCard>
         </Row> */}
-        <SplitContainer style={{ borderRight: commonBorder }}>
-          <Assets data={assets} />
-        </SplitContainer>
-        <SplitContainer>
-          <Debts data={debts} assets={assets} />
-        </SplitContainer>
+        <Row>
+          <Button onClick={this.handleSave}>保存</Button>
+        </Row>
+        <Row type="flex" style={{ height: 'calc(100% - 32px)' }}>
+          <SplitContainer style={{ borderRight: commonBorder }}>
+            <Assets data={assets} />
+          </SplitContainer>
+          <SplitContainer>
+            <Debts data={debts} assets={assets} />
+          </SplitContainer>
+        </Row>
       </div>
     );
   }
