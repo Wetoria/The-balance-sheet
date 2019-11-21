@@ -91,14 +91,18 @@ const writeToFile = (fileName, str) => {
   });
 }
 
+const getAssetsAndDebts = (setter) => {
+  return {
+    assets: new Details(null, { func: setter, key: 'assets' }),
+    debts: new Details(null, { func: setter, key: 'debts' }),
+  };
+}
+
 class MainView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      assetsAndDebts: {
-        assets: new Details(null, { func: this.setter, key: 'assets' }),
-        debts: new Details(null, { func: this.setter, key: 'debts' }),
-      },
+      assetsAndDebts: getAssetsAndDebts(this.setter),
     }
     this.setter = this.setter.bind(this);
   }
