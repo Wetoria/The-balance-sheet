@@ -120,7 +120,6 @@ class TreeDraggable extends React.Component {
       <Tree
         className="draggable-tree"
         defaultExpandAll
-        draggable
         blockNode
         onDragEnter={this.onDragEnter}
         onDrop={this.onDrop}

@@ -91,21 +91,32 @@ const writeToFile = (fileName, str) => {
   });
 }
 
-const getAssetsAndDebts = (setter) => {
-  return {
-    assets: new Details(null, { func: setter, key: 'assets' }),
-    debts: new Details(null, { func: setter, key: 'debts' }),
-  };
-}
 
 class MainView extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      assetsAndDebts: getAssetsAndDebts(this.setter),
+    let fileContent = {};
+    try {
+      fileContent = JSON.parse(fs.readFileSync('./AND.json'));
+    } catch(err) {
     }
     this.setter = this.setter.bind(this);
+    const assetsAndDebts = {
+      assets: new Details(fileContent.assets, { func: this.setter, key: 'assets' }),
+      debts: new Details(fileContent.debts, { func: this.setter, key: 'debts' }),
+    }
+    this.state = {
+      assetsAndDebts,
+    }
   }
+
+  // componentDidMount() {
+  //   this.getAssetsAndDebts(this.setter);
+  // }
+
+  // getAssetsAndDebts = (setter) => {
+
+  // }
 
   setter = (key, obj) => {
     // obj.refreshTotal();

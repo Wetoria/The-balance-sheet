@@ -5,19 +5,19 @@ class Detail {
       this.amount = 0;
       this.children = [];
     }
+    this.setState = state.func;
+    this.stateKey = state.key;
     if (props instanceof Object) {
       for (const [key, value] of Object.entries(props)) {
         if (key === 'children') {
           this[key] = value.map((child) => {
-            return new Detail(child, state.func);
+            return new Detail(child, state);
           });
         } else {
           this[key] = value;
         }
       }
     }
-    this.setState = state.func;
-    this.stateKey = state.key;
   }
 
   addNewChild = () => {
