@@ -3,11 +3,16 @@ import {
   Row,
   Col,
   Button,
+  message,
 } from 'antd';
 
 import Assets from './AssetsAndDebts/Assets';
 import Debts from './AssetsAndDebts/Debts';
 import Details from './AssetsAndDebts/MoneyDetails';
+
+const { remote } = require('electron');
+const url = require('url');
+const path = require('path');
 
 const commonBorder = '1px solid black';
 
@@ -82,22 +87,26 @@ const StatisticCard = (props) => {
   );
 }
 
+const basePath = remote.app.getAppPath().replace('app.app/Contents/Resources/app', '');
+// const basePath = '.';
+
 const writeToFile = (fileName, str) => {
-  fs.writeFile(`${fileName}`, str, (err) => {
+  // fs.writeFileSync(`${basePath}/${fileName}`, str);
+  fs.writeFile(`${basePath}/${fileName}`, str, (err) => {
     if (err) {
-      console.log(err);
+    } else {
+      message.info('saved');
     }
-    console.log('done');
   });
 }
-
 
 class MainView extends Component {
   constructor(props) {
     super(props);
     let fileContent = {};
     try {
-      fileContent = JSON.parse(fs.readFileSync('./AND.json'));
+      const fileUrl = `${basePath}/AND.json`;
+      fileContent = JSON.parse(fs.readFileSync(fileUrl));
     } catch(err) {
     }
     this.setter = this.setter.bind(this);
@@ -138,7 +147,6 @@ class MainView extends Component {
         debts,
       }
     } = this.state;
-    console.log('ass is ', this.state.assetsAndDebts);
     return (
       <div
         style={{
