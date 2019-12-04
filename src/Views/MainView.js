@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
   Row,
-  Col,
   Button,
   message,
 } from 'antd';
@@ -11,8 +10,6 @@ import Debts from './AssetsAndDebts/Debts';
 import Details from './AssetsAndDebts/MoneyDetails';
 
 const { remote } = require('electron');
-const url = require('url');
-const path = require('path');
 
 const commonBorder = '1px solid black';
 
@@ -34,67 +31,11 @@ const SplitContainer = ({ children, style }) => {
   );
 }
 
-const ThirdHeightRow = ({ children }) => {
-  return (
-    <Row style={{ height: '33.33%' }} type="flex" align="middle">
-      { children }
-    </Row>
-  );
-}
-
-
-const StatisticCard = (props) => {
-  const assetsOrDebtsAmountStyle = {
-    marginLeft: '10px',
-  };
-  const assetsOrDebtsLabelStyle = {
-
-  };
-  return (
-    <div
-      style={{
-        width: '400px',
-        height: '170px',
-        background: 'white',
-        borderRadius: '10px',
-        boxShadow: '3px 3px 3px #DCDCDC',
-        border: '1px solid #DCDCDC',
-        padding: '15px 25px',
-      }}
-    >
-      <ThirdHeightRow>
-        <span>资金状况</span>
-      </ThirdHeightRow>
-      <ThirdHeightRow>
-        <Col span={12}>
-          <b style={{ fontSize: '26px' }}>1,234,567.00</b>
-        </Col>
-        <Col span={12}>
-          <b>50%</b>
-        </Col>
-      </ThirdHeightRow>
-      <ThirdHeightRow>
-        <Col span={12}>
-          <label style={assetsOrDebtsLabelStyle}>总资产</label>
-          <b style={assetsOrDebtsAmountStyle}>¥12,233</b>
-        </Col>
-        <Col span={12}>
-          <label style={assetsOrDebtsLabelStyle}>总资产</label>
-          <b style={assetsOrDebtsAmountStyle}>¥12,233</b>
-        </Col>
-      </ThirdHeightRow>
-    </div>
-  );
-}
-
 const basePath = `${remote.app.getPath('userData')}/data`;
 if (!fs.existsSync(basePath)) {
   fs.mkdirSync(basePath);
 }
-// const basePath = '.';
-
 const writeToFile = (fileName, str) => {
-  // fs.writeFileSync(`${basePath}/${fileName}`, str);
   fs.writeFile(`${basePath}/${fileName}`, str, (err) => {
     if (err) {
     } else {
@@ -122,16 +63,7 @@ class MainView extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.getAssetsAndDebts(this.setter);
-  // }
-
-  // getAssetsAndDebts = (setter) => {
-
-  // }
-
   setter = (key, obj) => {
-    // obj.refreshTotal();
     const { assetsAndDebts } = this.state;
     assetsAndDebts[key].refreshTotal();
     this.setState({
@@ -161,9 +93,6 @@ class MainView extends Component {
           background: '#FFFFFF',
         }}
       >
-        {/* <Row type="flex" style={{ padding: '5px 10px' }}>
-          <StatisticCard></StatisticCard>
-        </Row> */}
         <Row>
           <Button onClick={this.handleSave}>保存</Button>
         </Row>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Container from 'src/Components/ContainerCommon';
 import Details from 'src/Components/Details';
-import AlignCenterGrid from 'src/Components/AlignCenterGrid';
 
 class Assets extends Component {
   render() {
@@ -20,9 +19,6 @@ class Assets extends Component {
           flexDirection: 'column',
         }}
       >
-        {/* <AlignCenterGrid style={{ minHeight: '50px' }}>
-
-        </AlignCenterGrid> */}
         <Details data={data} />
         <Container label="总资产" value={amount.toFixed(2)} />
       </div>
