@@ -30,15 +30,15 @@ function createWindow() {
   */
   // 加载应用----适用于 react 项目
 
-  mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, './build/index.html'), // 注意这里修改
-    protocol: 'file:',
-    slashes: true
-  }))
-  // mainWindow.loadURL('http://localhost:3000');
+  // mainWindow.loadURL(url.format({
+  //   pathname: path.join(__dirname, './build/index.html'), // 注意这里修改
+  //   protocol: 'file:',
+  //   slashes: true
+  // }))
+  mainWindow.loadURL('http://localhost:3000');
 
   // 打开开发者工具，默认不打开
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
   // 关闭window时触发下列事件.
   mainWindow.on('closed', function () {
     mainWindow = null

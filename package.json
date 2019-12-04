@@ -67,7 +67,9 @@
 		"start": "node scripts/start.js",
 		"build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "package": "electron-packager ./ the-balance-sheet --out=dist --platform=darwin --electron-version=6.0.12 --overwrite --ignore=node_modules --ignore=AND.json"
+    "package": "electron-packager ./ the-balance-sheet --out=dist --platform=darwin --electron-version=6.0.12 --overwrite --ignore=node_modules --ignore=AND.json",
+    "packageW": "electron-packager ./ the-balance-sheet --out=dist --platform=win32 --electron-version=6.0.12 --overwrite --ignore=node_modules --ignore=AND.json",
+    "pack": "electron-builder --win -c.extraMetadata.main=build/main.js"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
@@ -140,6 +142,37 @@
 	"author": "Wetoria",
   "description": "",
   "devDependencies": {
-    "electron": "^6.0.12"
+    "electron": "^6.0.12",
+    "electron-builder": "^21.2.0"
+  },
+  "build": {
+    "productName": "the-balance-sheet",
+    "appId": "com.v.bs",
+    "copyright": "vip",
+    "directories": {
+			"output": "dist",
+			"buildResources": "build"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32"
+          ]
+        }
+      ]
+    }
   }
 }

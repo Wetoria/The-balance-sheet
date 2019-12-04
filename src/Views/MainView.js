@@ -87,7 +87,10 @@ const StatisticCard = (props) => {
   );
 }
 
-const basePath = remote.app.getAppPath().replace('app.app/Contents/Resources/app', '');
+const basePath = `${remote.app.getPath('userData')}/data`;
+if (!fs.existsSync(basePath)) {
+  fs.mkdirSync(basePath);
+}
 // const basePath = '.';
 
 const writeToFile = (fileName, str) => {
