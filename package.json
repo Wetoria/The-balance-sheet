@@ -69,7 +69,7 @@
     "test": "node scripts/test.js",
     "package": "electron-packager ./ the-balance-sheet --out=dist --platform=darwin --electron-version=6.0.12 --overwrite --ignore=node_modules --ignore=AND.json",
     "packageW": "electron-packager ./ the-balance-sheet --out=dist --platform=win32 --electron-version=6.0.12 --overwrite --ignore=node_modules --ignore=AND.json",
-    "pack": "electron-builder --win -c.extraMetadata.main=build/main.js"
+    "pack": "electron-builder --win --mac --dir -c.extraMetadata.main=build/main.js"
 	},
 	"eslintConfig": {
 		"extends": "react-app"

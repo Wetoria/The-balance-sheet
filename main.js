@@ -1,5 +1,7 @@
 // 引入electron并创建一个Browserwindow
 const { app, BrowserWindow } = require('electron')
+// const url = require('url');
+// const path = require('path');
 
 
 // 保持window对象的全局引用,避免JavaScript对象被垃圾回收时,窗口被自动关闭.
@@ -9,7 +11,7 @@ function createWindow() {
   //创建浏览器窗口,宽高自定义具体大小你开心就好
   mainWindow = new BrowserWindow({
     width: 800,
-    height: 600,
+    height: 700,
     'minHeight': 300,
     'minWidth': 300,
     webPreferences: {
@@ -17,6 +19,12 @@ function createWindow() {
       webSecurity: false
     },
   });
+
+  // mainWindow.loadURL(url.format({
+  //   pathname: path.join(__dirname, './index.html'), // 注意这里修改
+  //   protocol: 'file:',
+  //   slashes: true
+  // }));
 
   mainWindow.loadURL('http://localhost:3000');
 

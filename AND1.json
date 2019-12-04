@@ -1,0 +1,514 @@
+{
+  "assets": {
+    "amount": 23948.65,
+    "children": [
+      {
+        "key": "undefined-0",
+        "name": "支付宝",
+        "amount": 7112.45,
+        "children": [
+          {
+            "key": "undefined-0-0",
+            "name": "余额宝",
+            "amount": 5576.53,
+            "children": [],
+            "stateKey": "assets"
+          },
+          {
+            "key": "undefined-0-1",
+            "name": "基金",
+            "amount": 1505.3899999999999,
+            "children": [
+              {
+                "key": "undefined-0-1-0",
+                "name": "招商中证白酒指数分级",
+                "amount": 618.04,
+                "children": [],
+                "stateKey": "assets"
+              },
+              {
+                "key": "undefined-0-1-1",
+                "name": "广发纳斯达克100指数A",
+                "amount": 887.35,
+                "children": [],
+                "stateKey": "assets"
+              }
+            ],
+            "stateKey": "assets"
+          },
+          {
+            "key": "undefined-0-2",
+            "name": "黄金",
+            "amount": 30.53,
+            "children": [],
+            "stateKey": "assets"
+          }
+        ],
+        "stateKey": "assets"
+      },
+      {
+        "key": "undefined-1",
+        "name": "银行卡",
+        "amount": 477.98,
+        "children": [
+          {
+            "key": "undefined-1-0",
+            "name": "招商银行",
+            "amount": 477.98,
+            "children": [],
+            "stateKey": "assets"
+          },
+          {
+            "key": "undefined-1-1",
+            "name": "建设银行",
+            "amount": 0,
+            "children": [],
+            "stateKey": "assets"
+          }
+        ],
+        "stateKey": "assets"
+      },
+      {
+        "key": "undefined-2",
+        "name": "微信",
+        "amount": 2271.22,
+        "children": [
+          {
+            "key": "undefined-2-0",
+            "name": "Vip",
+            "amount": 2270.31,
+            "children": [],
+            "stateKey": "assets"
+          },
+          {
+            "key": "undefined-2-1",
+            "name": "vWetoria",
+            "amount": 0.91,
+            "children": [],
+            "stateKey": "assets"
+          }
+        ],
+        "stateKey": "assets"
+      },
+      {
+        "key": "undefined-3",
+        "name": "应收借款",
+        "amount": 0,
+        "children": [],
+        "stateKey": "assets"
+      },
+      {
+        "key": "undefined-4",
+        "name": "电子产品",
+        "amount": 14087,
+        "children": [
+          {
+            "key": "undefined-4-0",
+            "name": "xs",
+            "amount": 5399,
+            "children": [],
+            "stateKey": "assets"
+          },
+          {
+            "key": "undefined-4-1",
+            "name": "6s",
+            "amount": 800,
+            "children": [],
+            "stateKey": "assets"
+          },
+          {
+            "key": "undefined-4-2",
+            "name": "ipad",
+            "amount": 2388,
+            "children": [],
+            "stateKey": "assets"
+          },
+          {
+            "key": "undefined-4-3",
+            "name": "MBP",
+            "amount": 5500,
+            "children": [],
+            "stateKey": "assets"
+          }
+        ],
+        "stateKey": "assets"
+      }
+    ],
+    "stateKey": "assets"
+  },
+  "debts": {
+    "amount": 41548.3,
+    "children": [
+      {
+        "key": "undefined-0",
+        "name": "京东白条",
+        "amount": 454.0400000000001,
+        "children": [
+          {
+            "key": "undefined-0-0",
+            "name": "2019",
+            "amount": 122.34,
+            "children": [
+              {
+                "key": "undefined-0-0-0",
+                "name": "12",
+                "amount": 122.34,
+                "children": [],
+                "stateKey": "debts"
+              }
+            ],
+            "stateKey": "debts"
+          },
+          {
+            "key": "undefined-0-1",
+            "name": "2020",
+            "amount": 331.70000000000005,
+            "children": [
+              {
+                "key": "undefined-0-1-0",
+                "name": "1",
+                "amount": 122.34,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-0-1-1",
+                "name": "2",
+                "amount": 52.34,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-0-1-2",
+                "name": "3",
+                "amount": 52.34,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-0-1-3",
+                "name": "4",
+                "amount": 52.34,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-0-1-4",
+                "name": "5",
+                "amount": 52.34,
+                "children": [],
+                "stateKey": "debts"
+              }
+            ],
+            "stateKey": "debts"
+          }
+        ],
+        "stateKey": "debts"
+      },
+      {
+        "key": "undefined-1",
+        "name": "支付宝",
+        "amount": 7025.139999999999,
+        "children": [
+          {
+            "key": "undefined-1-0",
+            "name": "花呗",
+            "amount": 5146.97,
+            "children": [],
+            "stateKey": "debts"
+          },
+          {
+            "key": "undefined-1-1",
+            "name": "借呗",
+            "amount": 666.94,
+            "children": [],
+            "stateKey": "debts"
+          },
+          {
+            "key": "undefined-1-2",
+            "name": "花呗分期",
+            "amount": 1211.23,
+            "children": [],
+            "stateKey": "debts"
+          }
+        ],
+        "stateKey": "debts"
+      },
+      {
+        "key": "undefined-2",
+        "name": "信用卡",
+        "amount": 14084.05,
+        "children": [
+          {
+            "key": "undefined-2-0",
+            "name": "招商银行",
+            "amount": 14084.05,
+            "children": [],
+            "stateKey": "debts"
+          }
+        ],
+        "stateKey": "debts"
+      },
+      {
+        "key": "undefined-3",
+        "name": "分期乐",
+        "amount": 11485.07,
+        "children": [
+          {
+            "key": "undefined-3-0",
+            "name": "2019",
+            "amount": 528.91,
+            "children": [
+              {
+                "key": "undefined-3-0-0",
+                "name": "12",
+                "amount": 528.91,
+                "children": [],
+                "stateKey": "debts"
+              }
+            ],
+            "stateKey": "debts"
+          },
+          {
+            "key": "undefined-3-1",
+            "name": "2020",
+            "amount": 6253.139999999999,
+            "children": [
+              {
+                "key": "undefined-3-1-0",
+                "name": "1",
+                "amount": 528.91,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-1-1",
+                "name": "2",
+                "amount": 528.91,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-1-2",
+                "name": "3",
+                "amount": 528.91,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-1-3",
+                "name": "4",
+                "amount": 528.91,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-1-4",
+                "name": "5",
+                "amount": 528.91,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-1-5",
+                "name": "6",
+                "amount": 528.91,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-1-6",
+                "name": "7",
+                "amount": 528.91,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-1-7",
+                "name": "8",
+                "amount": 528.91,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-1-8",
+                "name": "9",
+                "amount": 528.91,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-1-9",
+                "name": "10",
+                "amount": 528.91,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-1-10",
+                "name": "11",
+                "amount": 482.02,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-1-11",
+                "name": "12",
+                "amount": 482.02,
+                "children": [],
+                "stateKey": "debts"
+              }
+            ],
+            "stateKey": "debts"
+          },
+          {
+            "key": "undefined-3-2",
+            "name": "2021",
+            "amount": 4703.0199999999995,
+            "children": [
+              {
+                "key": "undefined-3-2-0",
+                "name": "1",
+                "amount": 482.02,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-2-1",
+                "name": "2",
+                "amount": 482.02,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-2-2",
+                "name": "3",
+                "amount": 482.02,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-2-3",
+                "name": "4",
+                "amount": 482.02,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-2-4",
+                "name": "5",
+                "amount": 482.02,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-2-5",
+                "name": "6",
+                "amount": 482.02,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-2-6",
+                "name": "7",
+                "amount": 362.18,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-2-7",
+                "name": "8",
+                "amount": 362.18,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-2-8",
+                "name": "9",
+                "amount": 362.18,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-2-9",
+                "name": "10",
+                "amount": 362.18,
+                "children": [],
+                "stateKey": "debts"
+              },
+              {
+                "key": "undefined-3-2-10",
+                "name": "11",
+                "amount": 362.18,
+                "children": [],
+                "stateKey": "debts"
+              }
+            ],
+            "stateKey": "debts"
+          }
+        ],
+        "stateKey": "debts"
+      },
+      {
+        "key": "undefined-4",
+        "name": "熟人短期借款(1年内还清)",
+        "amount": 0,
+        "children": [
+          {
+            "key": "undefined-4-0",
+            "name": "",
+            "amount": 0,
+            "children": [],
+            "stateKey": "debts"
+          }
+        ],
+        "stateKey": "debts"
+      },
+      {
+        "key": "undefined-5",
+        "name": "熟人短期借款(1年内不还清)",
+        "amount": 8500,
+        "children": [
+          {
+            "key": "undefined-5-0",
+            "name": "天龙",
+            "amount": 2500,
+            "children": [],
+            "stateKey": "debts"
+          },
+          {
+            "key": "undefined-5-1",
+            "name": "自力",
+            "amount": 6000,
+            "children": [],
+            "stateKey": "debts"
+          }
+        ],
+        "stateKey": "debts"
+      },
+      {
+        "key": "undefined-6",
+        "name": "贷款",
+        "amount": 0,
+        "children": [
+          {
+            "key": "undefined-6-0",
+            "name": "房贷",
+            "amount": 0,
+            "children": [],
+            "stateKey": "debts"
+          },
+          {
+            "key": "undefined-6-1",
+            "name": "车贷",
+            "amount": 0,
+            "children": [],
+            "stateKey": "debts"
+          }
+        ],
+        "stateKey": "debts"
+      }
+    ],
+    "stateKey": "debts"
+  }
+}
